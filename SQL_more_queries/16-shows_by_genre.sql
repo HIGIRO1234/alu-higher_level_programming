@@ -1,8 +1,5 @@
--- RECORDS: List of all shows with their genre names
-SELECT  t.`title`, g.`name`
- FROM `tv_shows` AS t
-	LEFT JOIN `tv_show_genres` AS s
-	ON t.`id` = s.`show_id`
-	LEFT JOIN `tv_genres` AS g
-	ON s.`genre_id` = g.`id`
-ORDER BY t.`title`, g.`name`;
+SELECT tv_shows.title, tv_genres.name
+FROM tv_shows
+LEFT JOIN tv_show_genres ON tv_shows.id = tv_show_genres.show_id
+LEFT JOIN tv_genres ON tv_show_genres.genre_id = tv_genres.id
+ORDER BY tv_shows.title, tv_genres.name;
